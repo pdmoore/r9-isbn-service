@@ -47,6 +47,10 @@ public class ISBNService implements BookInfoProvider {
     }
 
     public BookInfo retrieve(String isbn) {
-        return booksByIsbn10.get(isbn);
+        if (10 == isbn.length()) {
+            return booksByIsbn10.get(isbn);
+        }
+
+        return booksByIsbn13.get(isbn);
     }
 }
